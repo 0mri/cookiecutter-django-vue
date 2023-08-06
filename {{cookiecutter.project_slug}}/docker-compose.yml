@@ -17,7 +17,7 @@ services:
     env_file: .env
 
   frontend:
-    image: node:10-alpine
+    image: node:12-alpine
     command: npm run serve
     volumes:
       - ./.env:/app/.env:ro
@@ -26,7 +26,7 @@ services:
     restart: on-failure
 
   postgres:
-    image: postgres:10-alpine
+    image: postgres:15-alpine
     volumes:
       - {{cookiecutter.project_slug}}_data:/var/lib/postgresql/data
     env_file: .env
